@@ -1,7 +1,9 @@
 name: tictactoe auth
 
+on: [push]
+
 jobs:
-  auth_job:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,5 +13,3 @@ jobs:
           java-version: 1.8
       - name: Build with Gradle
         run: ./gradlew clean build
-
-on: push
