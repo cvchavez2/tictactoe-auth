@@ -18,4 +18,26 @@ jobs:
       - name: Build with Gradle # the build with gradlew step runs gradlew wrapper script to ensure that your code builds. test pass, and a package can be created.
         run: ./gradlew build
 
-# d6394b4ed1b24c870d5d4d1a74128acd940fcfb2
+  package:
+    name: Publish Docker Image
+    runs-on: ubuntu-20.04
+    needs: [build_and_test]
+    env:
+      REPO: ${{ secrets.DOCKER_REPO }}
+#      DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker Hub Sign-in
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER.PASSWORD }}
+
+      - name: Building Docker Image
+        run: docker build -t $REPO:latest -t $REPO:${ GITHUB_RUN_ID }
+
+      - name: Publish Docker Image
+        run: docker push $REPO
+
+      - name: Docker Logout
+        run: docker logout
+
+
+
