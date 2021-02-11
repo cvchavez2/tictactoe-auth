@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM openjdk:8 as build
 WORKDIR /opt
 ENV PORT 8080
 EXPOSE 8080
