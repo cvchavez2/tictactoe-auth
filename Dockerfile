@@ -1,8 +1,9 @@
 FROM openjdk:8
-WORKDIR /opt
+#WORKDIR /opt
 ENV PORT 8080
 EXPOSE 8080
-COPY . .
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
 ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
 
 #Example1
