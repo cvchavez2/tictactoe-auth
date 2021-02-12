@@ -1,9 +1,8 @@
 FROM openjdk:8
-#WORKDIR /opt
+WORKDIR /opt
 ENV PORT 8080
 EXPOSE 8080
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+COPY /build/libs/tictactoe-auth-0.0.1-SNAPSHOT.jar /opt/app.jar
 ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
 
 #Example1
