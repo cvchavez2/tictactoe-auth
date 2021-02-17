@@ -11,11 +11,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableAuthorizationServer
 public class TictactoeAuthApplication {
 
-//	@RequestMapping("/")
-//	public String home(){
-//		return "Hello Docker World";
-//	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(TictactoeAuthApplication.class, args);
 	}
