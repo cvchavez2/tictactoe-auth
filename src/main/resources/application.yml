@@ -1,0 +1,20 @@
+
+spring:
+  application:
+    name: tictactoe-auth
+server:
+  port: 8080
+
+---
+spring:
+  profiles: default, test, local, dev, cloud
+security:
+  oauth2:
+    authorization:
+      checkTokenAccess: isAuthenticated()
+      jwt:
+        keyValue: somereallyreallysigningkey
+    client:
+      client-id: random
+      client-secret: thisismyrandomsecret
+      scope: all

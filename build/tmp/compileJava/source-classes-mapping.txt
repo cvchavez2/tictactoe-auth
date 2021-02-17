@@ -1,0 +1,4 @@
+com/carlosgroup/tictactoeauth/TictactoeAuthApplication.java
+ com.carlosgroup.tictactoeauth.TictactoeAuthApplication
+com/carlosgroup/tictactoeauth/config/WebSecurityConfiguration.java
+ com.carlosgroup.tictactoeauth.config.WebSecurityConfiguration
